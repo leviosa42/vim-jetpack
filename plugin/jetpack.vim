@@ -235,7 +235,7 @@ function! s:make_download_cmd(pkg) abort
       let label = a:pkg.commit
     endif
     if g:jetpack_download_method ==# 'curl'
-      let download_cmd = 'curl -fsSL ' .  a:pkg.url . '/archive/' . label . '.tar.gz'
+      let download_cmd = 'curl -fsSL ' .  a:pkg.url . '/archive/' . label . '.tar.gz' . '-o ' . a:pkg:path
     elseif g:jetpack_download_method ==# 'wget'
       let download_cmd = 'wget -O - ' .  a:pkg.url . '/archive/' . label . '.tar.gz'
     else
